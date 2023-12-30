@@ -30,7 +30,7 @@ SECRET_KEY = "django-insecure-%hav51__3covl2358$v(4g7w4xb2lm5hwgn&n0yv%6wm(a3p#&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,9 +44,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "mainapp",
     "rest_framework",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -54,6 +56,11 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3001",  
 ]
 
 ROOT_URLCONF = "datvizbackend.urls"
